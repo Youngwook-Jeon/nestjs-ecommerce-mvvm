@@ -7,9 +7,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.project.young.ecommerce_mvvm.domain.model.User
+import com.project.young.ecommerce_mvvm.domain.model.AuthResponse
 import com.project.young.ecommerce_mvvm.domain.usecase.auth.AuthUseCase
-import com.project.young.ecommerce_mvvm.domain.util.Response
+import com.project.young.ecommerce_mvvm.domain.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -23,15 +23,15 @@ class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase) :
     var errorMessage by mutableStateOf("")
         private set
 
-    var loginResponse by mutableStateOf<Response<User>?>(null)
+    var loginResource by mutableStateOf<Resource<AuthResponse>?>(null)
         private set
 
     fun login() = viewModelScope.launch {
         if (isValidForm()) {
-            loginResponse = Response.Loading
+            loginResource = Resource.Loading
             val result = authUseCase.login(state.email, state.password)
-            loginResponse = result
-            Log.d("LoginViewModel", "Response: $loginResponse")
+            loginResource = result
+            Log.d("LoginViewModel", "Response: $loginResource")
         }
 
     }

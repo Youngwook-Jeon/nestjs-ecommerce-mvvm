@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.project.young.ecommerce_mvvm.presentation.screens.auth.login.components.Login
 import com.project.young.ecommerce_mvvm.presentation.screens.auth.login.components.LoginContent
 import com.project.young.ecommerce_mvvm.presentation.ui.theme.EcommercemvvmTheme
 
@@ -15,6 +16,7 @@ fun LoginScreen(navController: NavHostController) {
     ) { paddingValues ->
         LoginContent(navController = navController, paddingValues = paddingValues)
     }
+    Login(navHostController = navController)
 }
 
 @Preview(showBackground = true, showSystemUi = true)

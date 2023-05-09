@@ -7,6 +7,7 @@ import androidx.navigation.navigation
 import com.project.young.ecommerce_mvvm.presentation.navigation.Graph
 import com.project.young.ecommerce_mvvm.presentation.screens.auth.login.LoginScreen
 import com.project.young.ecommerce_mvvm.presentation.screens.auth.register.RegisterScreen
+import com.project.young.ecommerce_mvvm.presentation.screens.home.HomeScreen
 
 fun NavGraphBuilder.AuthNavGraph(navController: NavHostController) {
     navigation(
@@ -19,6 +20,10 @@ fun NavGraphBuilder.AuthNavGraph(navController: NavHostController) {
 
         composable(route = AuthScreen.Register.route) {
             RegisterScreen(navController)
+        }
+
+        composable(route = AuthScreen.Home.route) {
+            HomeScreen(navController)
         }
     }
 }
