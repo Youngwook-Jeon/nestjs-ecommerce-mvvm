@@ -21,7 +21,6 @@ class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase) :
         private set
 
     var errorMessage by mutableStateOf("")
-        private set
 
     var loginResource by mutableStateOf<Resource<AuthResponse>?>(null)
         private set

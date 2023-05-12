@@ -32,7 +32,7 @@ fun Login(navHostController: NavHostController, vm: LoginViewModel = hiltViewMod
             }
         }
         is Resource.Failure -> {
-            Toast.makeText(LocalContext.current, response.exception?.message ?: "에러가 발생했습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(LocalContext.current, response.message, Toast.LENGTH_SHORT).show()
         }
         else -> {
             if (response != null) {
