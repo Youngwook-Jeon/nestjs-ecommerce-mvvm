@@ -167,7 +167,7 @@ fun RegisterContent(paddingValues: PaddingValues, vm: RegisterViewModel = hiltVi
                             .fillMaxWidth()
                             .height(50.dp),
                         text = "가입",
-                        onClick = { vm.validateForm() }
+                        onClick = { vm.register() }
                     )
                 }
             }

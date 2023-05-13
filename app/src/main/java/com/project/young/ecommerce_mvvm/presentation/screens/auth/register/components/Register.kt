@@ -1,4 +1,4 @@
-package com.project.young.ecommerce_mvvm.presentation.screens.auth.login.components
+package com.project.young.ecommerce_mvvm.presentation.screens.auth.register.components
 
 import android.widget.Toast
 import androidx.compose.runtime.Composable
@@ -9,11 +9,11 @@ import androidx.navigation.NavHostController
 import com.project.young.ecommerce_mvvm.domain.util.Resource
 import com.project.young.ecommerce_mvvm.presentation.components.ProgressBar
 import com.project.young.ecommerce_mvvm.presentation.navigation.graph.AuthScreen
-import com.project.young.ecommerce_mvvm.presentation.screens.auth.login.LoginViewModel
+import com.project.young.ecommerce_mvvm.presentation.screens.auth.register.RegisterViewModel
 
 @Composable
-fun Login(navHostController: NavHostController, vm: LoginViewModel = hiltViewModel()) {
-    when (val response = vm.loginResource) {
+fun Register(navHostController: NavHostController, vm: RegisterViewModel = hiltViewModel()) {
+    when (val response = vm.registerResponse) {
         Resource.Loading -> {
             ProgressBar()
         }
@@ -23,7 +23,7 @@ fun Login(navHostController: NavHostController, vm: LoginViewModel = hiltViewMod
             }
         }
         is Resource.Failure -> {
-            Toast.makeText(LocalContext.current, response.message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(LocalContext.current, response.message, Toast.LENGTH_LONG).show()
         }
         else -> {
             if (response != null) {

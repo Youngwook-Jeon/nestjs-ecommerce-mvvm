@@ -6,6 +6,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.project.young.ecommerce_mvvm.presentation.components.DefaultTopBar
+import com.project.young.ecommerce_mvvm.presentation.screens.auth.register.components.Register
 import com.project.young.ecommerce_mvvm.presentation.screens.auth.register.components.RegisterContent
 import com.project.young.ecommerce_mvvm.presentation.ui.theme.EcommercemvvmTheme
 
@@ -22,6 +23,7 @@ fun RegisterScreen(navController: NavHostController) {
     ) { paddingValues ->
         RegisterContent(paddingValues = paddingValues)
     }
+    Register(navController)
 }
 
 @Preview(showBackground = true, showSystemUi = true)
