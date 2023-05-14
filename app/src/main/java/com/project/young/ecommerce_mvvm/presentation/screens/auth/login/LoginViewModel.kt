@@ -11,6 +11,7 @@ import com.project.young.ecommerce_mvvm.domain.model.AuthResponse
 import com.project.young.ecommerce_mvvm.domain.usecase.auth.AuthUseCase
 import com.project.young.ecommerce_mvvm.domain.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,15 +23,33 @@ class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase) :
 
     var errorMessage by mutableStateOf("")
 
-    var loginResource by mutableStateOf<Resource<AuthResponse>?>(null)
+    var loginResponse by mutableStateOf<Resource<AuthResponse>?>(null)
         private set
+
+    init {
+        getSessionData()
+    }
+
+    fun getSessionData() = viewModelScope.launch {
+        authUseCase.getSessionData().collect() { data ->
+            if (data != null) {
+                Log.d("LoginViewModel", "Data: ${data.toJson()}")
+            } else {
+                Log.d("LoginViewModel", "Data: NULL")
+            }
+        }
+    }
+
+    fun saveSession(authResponse: AuthResponse) = viewModelScope.launch {
+        authUseCase.saveSession(authResponse)
+    }
 
     fun login() = viewModelScope.launch {
         if (isValidForm()) {
-            loginResource = Resource.Loading
+            loginResponse = Resource.Loading
             val result = authUseCase.login(state.email, state.password)
-            loginResource = result
-            Log.d("LoginViewModel", "Response: $loginResource")
+            loginResponse = result
+            Log.d("LoginViewModel", "Response: $loginResponse")
         }
 
     }

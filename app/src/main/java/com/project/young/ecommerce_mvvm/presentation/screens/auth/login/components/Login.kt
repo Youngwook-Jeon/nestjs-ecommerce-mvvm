@@ -13,12 +13,13 @@ import com.project.young.ecommerce_mvvm.presentation.screens.auth.login.LoginVie
 
 @Composable
 fun Login(navHostController: NavHostController, vm: LoginViewModel = hiltViewModel()) {
-    when (val response = vm.loginResource) {
+    when (val response = vm.loginResponse) {
         Resource.Loading -> {
             ProgressBar()
         }
         is Resource.Success -> {
             LaunchedEffect(Unit) {
+                vm.saveSession(response.data)
                 navHostController.navigate(route = AuthScreen.Home.route)
             }
         }

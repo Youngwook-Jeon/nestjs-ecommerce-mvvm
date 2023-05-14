@@ -1,9 +1,7 @@
 package com.project.young.ecommerce_mvvm.di
 
 import com.project.young.ecommerce_mvvm.domain.repository.AuthRepository
-import com.project.young.ecommerce_mvvm.domain.usecase.auth.AuthUseCase
-import com.project.young.ecommerce_mvvm.domain.usecase.auth.LoginUseCase
-import com.project.young.ecommerce_mvvm.domain.usecase.auth.RegisterUseCase
+import com.project.young.ecommerce_mvvm.domain.usecase.auth.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,6 +14,8 @@ object UseCaseModule {
     @Provides
     fun provideAuthUseCase(authRepository: AuthRepository) = AuthUseCase(
         login = LoginUseCase(authRepository),
-        register = RegisterUseCase(authRepository)
+        register = RegisterUseCase(authRepository),
+        saveSession = SaveSessionUseCase(authRepository),
+        getSessionData = GetSessionDataUseCase(authRepository)
     )
 }
