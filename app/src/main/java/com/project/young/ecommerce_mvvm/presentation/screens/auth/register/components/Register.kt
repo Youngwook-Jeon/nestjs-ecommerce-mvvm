@@ -18,6 +18,7 @@ fun Register(navHostController: NavHostController, vm: RegisterViewModel = hiltV
             ProgressBar()
         }
         is Resource.Success -> {
+            vm.saveSession(response.data)
             LaunchedEffect(Unit) {
                 navHostController.navigate(route = AuthScreen.Home.route)
             }

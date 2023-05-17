@@ -32,10 +32,8 @@ class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase) :
 
     fun getSessionData() = viewModelScope.launch {
         authUseCase.getSessionData().collect() { data ->
-            if (data != null) {
-                Log.d("LoginViewModel", "Data: ${data.toJson()}")
-            } else {
-                Log.d("LoginViewModel", "Data: NULL")
+            if (!data.token.isNullOrBlank()) {
+                loginResponse = Resource.Success(data)
             }
         }
     }
@@ -49,7 +47,6 @@ class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase) :
             loginResponse = Resource.Loading
             val result = authUseCase.login(state.email, state.password)
             loginResponse = result
-            Log.d("LoginViewModel", "Response: $loginResponse")
         }
 
     }

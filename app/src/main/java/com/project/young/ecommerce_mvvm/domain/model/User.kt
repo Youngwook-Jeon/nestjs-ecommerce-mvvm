@@ -2,6 +2,7 @@ package com.project.young.ecommerce_mvvm.domain.model
 
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class User(
     @SerializedName("id") val id: String? = null,
@@ -12,7 +13,8 @@ data class User(
     @SerializedName("password") val password: String,
     @SerializedName("image") val image: String? = null,
     @SerializedName("notification_token") val notificationToken: String? = null,
-) {
+    @SerializedName("roles") val roles: ArrayList<Role>? = null,
+): Serializable {
     fun toJson(): String = Gson().toJson(this)
 
     companion object {
