@@ -20,7 +20,16 @@ fun Login(navHostController: NavHostController, vm: LoginViewModel = hiltViewMod
         is Resource.Success -> {
             LaunchedEffect(Unit) {
                 vm.saveSession(response.data)
-                navHostController.navigate(route = AuthScreen.Home.route)
+                if (response.data.user?.roles!!.size > 1) {
+                    navHostController.navigate(route = AuthScreen.Roles.route) {
+                        popUpTo(AuthScreen.Login.route) { inclusive = true }
+                    }
+                } else {
+                    navHostController.navigate(route = AuthScreen.Home.route) {
+                        popUpTo(AuthScreen.Login.route) { inclusive = true }
+                    }
+                }
+
             }
         }
         is Resource.Failure -> {
