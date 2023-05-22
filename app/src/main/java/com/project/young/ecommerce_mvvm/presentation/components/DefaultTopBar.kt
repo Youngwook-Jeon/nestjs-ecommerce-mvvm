@@ -20,7 +20,7 @@ fun DefaultTopBar(
     TopAppBar(
         title = {
             Text(
-                text = "가입",
+                text = title,
                 fontSize = 19.sp
             )
         },

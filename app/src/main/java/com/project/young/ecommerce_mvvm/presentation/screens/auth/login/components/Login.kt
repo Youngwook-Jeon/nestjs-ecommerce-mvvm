@@ -8,7 +8,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.project.young.ecommerce_mvvm.domain.util.Resource
 import com.project.young.ecommerce_mvvm.presentation.components.ProgressBar
-import com.project.young.ecommerce_mvvm.presentation.navigation.graph.AuthScreen
+import com.project.young.ecommerce_mvvm.presentation.navigation.Graph
+import com.project.young.ecommerce_mvvm.presentation.navigation.screen.AuthScreen
 import com.project.young.ecommerce_mvvm.presentation.screens.auth.login.LoginViewModel
 
 @Composable
@@ -21,12 +22,12 @@ fun Login(navHostController: NavHostController, vm: LoginViewModel = hiltViewMod
             LaunchedEffect(Unit) {
                 vm.saveSession(response.data)
                 if (response.data.user?.roles!!.size > 1) {
-                    navHostController.navigate(route = AuthScreen.Roles.route) {
-                        popUpTo(AuthScreen.Login.route) { inclusive = true }
+                    navHostController.navigate(route = Graph.ROLES) {
+                        popUpTo(Graph.AUTH) { inclusive = true }
                     }
                 } else {
-                    navHostController.navigate(route = AuthScreen.Home.route) {
-                        popUpTo(AuthScreen.Login.route) { inclusive = true }
+                    navHostController.navigate(route = Graph.ROLES) {
+                        popUpTo(Graph.AUTH) { inclusive = true }
                     }
                 }
 
