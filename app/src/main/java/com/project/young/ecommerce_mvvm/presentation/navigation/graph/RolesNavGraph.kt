@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.project.young.ecommerce_mvvm.presentation.navigation.Graph
 import com.project.young.ecommerce_mvvm.presentation.navigation.screen.RolesScreen
+import com.project.young.ecommerce_mvvm.presentation.screens.client.home.ClientHomeScreen
 import com.project.young.ecommerce_mvvm.presentation.screens.roles.RolesScreen
 
 fun NavGraphBuilder.RolesNavGraph(navController: NavHostController) {
@@ -17,5 +18,8 @@ fun NavGraphBuilder.RolesNavGraph(navController: NavHostController) {
             RolesScreen(navController)
         }
 
+        composable(route = Graph.CLIENT) {
+            ClientHomeScreen()
+        }
     }
 }

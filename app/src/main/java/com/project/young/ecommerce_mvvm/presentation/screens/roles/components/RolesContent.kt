@@ -27,7 +27,7 @@ fun RolesContent(paddingValues: PaddingValues, navHostController: NavHostControl
         items(
             items = data?.roles ?: arrayListOf()
         ) { role ->
-            RolesItem(role = role, navHostController = navHostController)
+            RolesItem(role = role, navController = navHostController)
         }
 
     }

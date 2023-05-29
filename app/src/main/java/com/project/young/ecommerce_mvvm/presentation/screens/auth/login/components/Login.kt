@@ -26,7 +26,7 @@ fun Login(navHostController: NavHostController, vm: LoginViewModel = hiltViewMod
                         popUpTo(Graph.AUTH) { inclusive = true }
                     }
                 } else {
-                    navHostController.navigate(route = Graph.ROLES) {
+                    navHostController.navigate(route = Graph.CLIENT) {
                         popUpTo(Graph.AUTH) { inclusive = true }
                     }
                 }
