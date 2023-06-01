@@ -1,18 +1,22 @@
 package com.project.young.ecommerce_mvvm.presentation.screens.admin.home
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.project.young.ecommerce_mvvm.presentation.navigation.graph.AdminNavGraph
+import com.project.young.ecommerce_mvvm.presentation.screens.admin.home.components.AdminBottomBar
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun AdminHomeScreen(navHostController: NavHostController) {
-    Scaffold() { paddingValues ->
-        Text(
-            modifier = Modifier.padding(paddingValues = paddingValues),
-            text = "Admin HomeScreen"
-        )
+fun AdminHomeScreen(navController: NavHostController = rememberNavController()) {
+    Scaffold(
+        bottomBar = { AdminBottomBar(navController = navController)}
+    ) { paddingValues ->
+        AdminNavGraph(navController = navController)
     }
 }
