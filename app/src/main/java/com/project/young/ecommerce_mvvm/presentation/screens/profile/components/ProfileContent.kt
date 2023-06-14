@@ -28,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.AsyncImage
 import com.project.young.ecommerce_mvvm.R
 import com.project.young.ecommerce_mvvm.presentation.MainActivity
 import com.project.young.ecommerce_mvvm.presentation.components.DefaultButton
@@ -37,7 +38,11 @@ import com.project.young.ecommerce_mvvm.presentation.screens.profile.ProfileView
 fun ProfileContent(paddingValues: PaddingValues, vm: ProfileViewModel = hiltViewModel()) {
     val activity = LocalContext.current as? Activity
 
-    Box(modifier = Modifier.padding(paddingValues).padding(bottom = 55.dp)) {
+    Box(
+        modifier = Modifier
+            .padding(paddingValues)
+            .padding(bottom = 55.dp)
+    ) {
         Image(
             modifier = Modifier.fillMaxSize(),
             painter = painterResource(id = R.drawable.profile_background),
@@ -67,14 +72,27 @@ fun ProfileContent(paddingValues: PaddingValues, vm: ProfileViewModel = hiltView
                     tint = Color.White
                 )
             }
-            Image(
-                modifier = Modifier
-                    .size(150.dp)
-                    .clip(CircleShape)
-                    .align(Alignment.CenterHorizontally),
-                painter = painterResource(id = R.drawable.user_image),
-                contentDescription = ""
-            )
+            if (!vm.user?.image.isNullOrBlank()) {
+                AsyncImage(
+                    modifier = Modifier
+                        .size(150.dp)
+                        .clip(CircleShape)
+                        .align(Alignment.CenterHorizontally),
+                    model = vm.user?.image,
+                    contentDescription = "",
+                    contentScale = ContentScale.Crop
+                )
+            } else {
+                Image(
+                    modifier = Modifier
+                        .size(150.dp)
+                        .clip(CircleShape)
+                        .align(Alignment.CenterHorizontally),
+                    painter = painterResource(id = R.drawable.user_image),
+                    contentDescription = ""
+                )
+            }
+
             Spacer(modifier = Modifier.weight(1f))
             Card(
                 modifier = Modifier.fillMaxWidth(), shape = RoundedCornerShape(
@@ -93,7 +111,7 @@ fun ProfileContent(paddingValues: PaddingValues, vm: ProfileViewModel = hiltView
                     ) {
                         Icon(imageVector = Icons.Default.Person, contentDescription = "")
                         Column(modifier = Modifier.padding(horizontal = 5.dp)) {
-                            Text(text = "John Doe")
+                            Text(text = "${vm.user?.name} ${vm.user?.lastname}")
                             Text(text = "사용자 이름", fontSize = 12.sp, color = Color.Gray)
                         }
                     }
@@ -106,7 +124,7 @@ fun ProfileContent(paddingValues: PaddingValues, vm: ProfileViewModel = hiltView
                     ) {
                         Icon(imageVector = Icons.Default.Email, contentDescription = "")
                         Column(modifier = Modifier.padding(horizontal = 5.dp)) {
-                            Text(text = "john@gmail.com")
+                            Text(text = vm.user?.email ?: "")
                             Text(text = "이메일", fontSize = 12.sp, color = Color.Gray)
                         }
                     }
@@ -119,7 +137,7 @@ fun ProfileContent(paddingValues: PaddingValues, vm: ProfileViewModel = hiltView
                     ) {
                         Icon(imageVector = Icons.Default.Phone, contentDescription = "")
                         Column(modifier = Modifier.padding(horizontal = 5.dp)) {
-                            Text(text = "01011111111")
+                            Text(text = vm.user?.phone ?: "")
                             Text(text = "연락처", fontSize = 12.sp, color = Color.Gray)
                         }
                     }
