@@ -9,7 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.project.young.ecommerce_mvvm.presentation.navigation.graph.RootNavGraph
+import com.project.young.ecommerce_mvvm.presentation.navigation.graph.root.RootNavGraph
 import com.project.young.ecommerce_mvvm.presentation.ui.theme.EcommercemvvmTheme
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -7,7 +7,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import com.project.young.ecommerce_mvvm.presentation.navigation.screen.AdminScreen
+import com.project.young.ecommerce_mvvm.presentation.navigation.screen.admin.AdminScreen
 
 @Composable
 fun RowScope.AdminBottomBarItem(

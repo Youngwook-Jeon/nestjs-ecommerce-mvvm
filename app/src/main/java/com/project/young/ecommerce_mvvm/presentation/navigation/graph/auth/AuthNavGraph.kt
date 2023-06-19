@@ -1,11 +1,11 @@
-package com.project.young.ecommerce_mvvm.presentation.navigation.graph
+package com.project.young.ecommerce_mvvm.presentation.navigation.graph.auth
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.project.young.ecommerce_mvvm.presentation.navigation.Graph
-import com.project.young.ecommerce_mvvm.presentation.navigation.screen.AuthScreen
+import com.project.young.ecommerce_mvvm.presentation.navigation.screen.auth.AuthScreen
 import com.project.young.ecommerce_mvvm.presentation.screens.auth.login.LoginScreen
 import com.project.young.ecommerce_mvvm.presentation.screens.auth.register.RegisterScreen
 

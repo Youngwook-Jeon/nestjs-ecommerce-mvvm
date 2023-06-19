@@ -9,7 +9,6 @@ import androidx.navigation.NavHostController
 import com.project.young.ecommerce_mvvm.domain.util.Resource
 import com.project.young.ecommerce_mvvm.presentation.components.ProgressBar
 import com.project.young.ecommerce_mvvm.presentation.navigation.Graph
-import com.project.young.ecommerce_mvvm.presentation.navigation.screen.AuthScreen
 import com.project.young.ecommerce_mvvm.presentation.screens.auth.register.RegisterViewModel
 
 @Composable

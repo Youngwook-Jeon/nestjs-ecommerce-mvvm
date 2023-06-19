@@ -1,4 +1,4 @@
-package com.project.young.ecommerce_mvvm.presentation.screens.profile
+package com.project.young.ecommerce_mvvm.presentation.screens.profile.info
 
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel

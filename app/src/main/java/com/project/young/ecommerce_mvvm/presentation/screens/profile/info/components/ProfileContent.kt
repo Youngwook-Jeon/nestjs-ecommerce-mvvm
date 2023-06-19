@@ -1,4 +1,4 @@
-package com.project.young.ecommerce_mvvm.presentation.screens.profile.components
+package com.project.young.ecommerce_mvvm.presentation.screens.profile.info.components
 
 import android.app.Activity
 import android.content.Intent
@@ -32,7 +32,7 @@ import coil.compose.AsyncImage
 import com.project.young.ecommerce_mvvm.R
 import com.project.young.ecommerce_mvvm.presentation.MainActivity
 import com.project.young.ecommerce_mvvm.presentation.components.DefaultButton
-import com.project.young.ecommerce_mvvm.presentation.screens.profile.ProfileViewModel
+import com.project.young.ecommerce_mvvm.presentation.screens.profile.info.ProfileViewModel
 
 @Composable
 fun ProfileContent(paddingValues: PaddingValues, vm: ProfileViewModel = hiltViewModel()) {

@@ -30,7 +30,7 @@ import androidx.navigation.NavHostController
 import com.project.young.ecommerce_mvvm.R
 import com.project.young.ecommerce_mvvm.presentation.components.DefaultButton
 import com.project.young.ecommerce_mvvm.presentation.components.DefaultTextField
-import com.project.young.ecommerce_mvvm.presentation.navigation.screen.AuthScreen
+import com.project.young.ecommerce_mvvm.presentation.navigation.screen.auth.AuthScreen
 import com.project.young.ecommerce_mvvm.presentation.screens.auth.login.LoginViewModel
 import com.project.young.ecommerce_mvvm.presentation.ui.theme.Blue700
 

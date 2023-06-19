@@ -3,7 +3,7 @@ package com.project.young.ecommerce_mvvm.presentation.screens.client.category.li
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import com.project.young.ecommerce_mvvm.presentation.screens.client.category.list.components.ClientCategoryListContent
-import com.project.young.ecommerce_mvvm.presentation.screens.profile.components.ProfileContent
+import com.project.young.ecommerce_mvvm.presentation.screens.profile.info.components.ProfileContent
 
 @Composable
 fun ClientCategoryListScreen() {

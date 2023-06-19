@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.project.young.ecommerce_mvvm.presentation.navigation.screen.AdminScreen
+import com.project.young.ecommerce_mvvm.presentation.navigation.screen.admin.AdminScreen
 
 @Composable
 fun AdminBottomBar(navController: NavHostController) {
